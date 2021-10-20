@@ -1,0 +1,4 @@
+__files__/
+coverage/
+dist/
+node_modules/

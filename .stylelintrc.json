@@ -1,0 +1,3 @@
+{
+  "extends": "@fastcms/stylelint-config"
+}
