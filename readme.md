@@ -24,6 +24,46 @@ $ yarn add --dev esbuild
 $ yarn add --dev @swc/core
 ```
 
+## Usage
+
+After installation, add following contents to your `webpack.config.js` file.
+
+```js
+const path = require('path');
+const webpackConfig = require('@fastcms/webpack-config');
+
+const NAME = 'fastcms';
+const SRC_DIR = path.join(__dirname, 'src');
+const DIST_DIR = path.join(__dirname, 'dist');
+
+const ENTRY = {
+  [NAME]: './src/index.js',
+  [`${NAME}WebWorker`]: './src/index.worker.js',
+};
+
+const EXTERNALS = {
+  'react': 'React',
+  'react-dom': 'ReactDOM',
+};
+
+module.exports = (env, argv) =>
+  webpackConfig(env, argv, {
+    NAME,
+    ENTRY,
+    LIBRARY_TARGET: env.target || 'umd',
+    EXTERNALS,
+    SRC_DIR,
+    DIST_DIR,
+
+    // USE_SWC: true,
+    // USE_ESBUILD: true,
+  });
+```
+
+The webpack config example above is used for bundling web project, the default loader for JavsScript and TypeScript is `babel-loader`. If you set `USE_SWC` to `true`, the loader will be `swc-loader`, If you set `USE_ESBUILD` to `true`, the loader will be `esbuild-loader`.
+
+If you don't want to bundle some external dependencies to the output file, you should add these dependencies to `EXTERNALS`.
+
 ## License
 
 The codebase and documentation in this repository are released under the [MIT License](./license)
