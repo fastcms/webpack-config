@@ -310,9 +310,10 @@ module.exports = (
       },
       modules: [
         SRC_DIR,
-        path.resolve(__dirname, 'node_modules'),
-        path.resolve(__dirname, '..', 'node_modules'),
-        path.resolve(__dirname, '..', '..', 'node_modules'),
+        path.resolve(SRC_DIR, 'node_modules'),
+        path.resolve(SRC_DIR, '..', 'node_modules'),
+        path.resolve(SRC_DIR, '..', '..', 'node_modules'),
+        path.resolve(SRC_DIR, '..', '..', '..', 'node_modules'),
       ],
     },
 
