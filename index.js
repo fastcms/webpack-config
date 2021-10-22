@@ -306,6 +306,7 @@ module.exports = (
       fallback: {
         fs: false,
         path: false,
+        zlib: false,
       },
       modules: [
         SRC_DIR,
