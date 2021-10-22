@@ -24,7 +24,7 @@ module.exports = (
     ESBUILD_TARGET = 'es2017',
 
     USE_SWC = false,
-    SWR_LOADER_OPTIONS = {},
+    SWC_LOADER_OPTIONS = {},
 
     SRC_DIR,
     DIST_DIR,
@@ -193,7 +193,7 @@ module.exports = (
   } else if (USE_SWC) {
     rules[0].use.push({
       loader: 'swc-loader',
-      options: SWR_LOADER_OPTIONS,
+      options: SWC_LOADER_OPTIONS,
     });
 
     rules = [
@@ -202,7 +202,7 @@ module.exports = (
         exclude: EXCLUDE_DIR,
         use: {
           loader: 'swc-loader',
-          options: SWR_LOADER_OPTIONS,
+          options: SWC_LOADER_OPTIONS,
         },
       },
       {
@@ -216,7 +216,7 @@ module.exports = (
                 syntax: 'typescript',
               },
             },
-            ...SWR_LOADER_OPTIONS,
+            ...SWC_LOADER_OPTIONS,
           },
         },
       },
