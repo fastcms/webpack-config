@@ -13,7 +13,7 @@ module.exports = (
     NAME = 'index',
     MAIN = 'index.js',
     ENTRY,
-    PUBLIC_PATH = process.env.PUBLIC_URL || 'auto',
+    PUBLIC_PATH = process.env.PUBLIC_URL || '/',
 
     TARGET = 'browserslist',
     LIBRARY_TARGET = 'umd',
@@ -290,7 +290,7 @@ module.exports = (
       globalObject: LIBRARY_TARGET === 'umd' ? 'this' : undefined,
       filename: outputModule ? '[name].mjs' : '[name].js',
       scriptType: outputModule ? 'module' : false,
-      publicPath: isProd ? PUBLIC_PATH : 'auto',
+      publicPath: isProd ? PUBLIC_PATH : '/',
       pathinfo: !isProd,
     },
 
